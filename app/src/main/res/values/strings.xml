@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Flight Trips</string>
+    <string name="trips">Trips</string>
 </resources>
