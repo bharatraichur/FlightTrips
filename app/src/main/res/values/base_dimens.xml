@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="base_spacing_unit_zero">0dp</dimen>
+    <dimen name="base_spacing_unit_min">2dp</dimen>
+    <dimen name="base_spacing_unit_0_5">4dp</dimen>
+    <dimen name="base_spacing_unit_1">8dp</dimen>
+    <dimen name="base_spacing_unit_1_5">12dp</dimen>
+    <dimen name="base_spacing_unit_2">16dp</dimen>
+    <dimen name="base_spacing_unit_2_5">20dp</dimen>
+    <dimen name="base_spacing_unit_3">24dp</dimen>
+    <dimen name="base_spacing_unit_3_5">28dp</dimen>
+    <dimen name="base_spacing_unit_4">32dp</dimen>
+    <dimen name="base_spacing_unit_4_5">36dp</dimen>
+    <dimen name="base_spacing_unit_5">40dp</dimen>
+    <dimen name="base_spacing_unit_5_5">44dp</dimen>
+    <dimen name="base_spacing_unit_6">48dp</dimen>
+    <dimen name="base_spacing_unit_6_5">52dp</dimen>
+    <dimen name="base_spacing_unit_7">56dp</dimen>
+    <dimen name="base_spacing_unit_7_5">60dp</dimen>
+    <dimen name="base_spacing_unit_8">64dp</dimen>
+</resources>

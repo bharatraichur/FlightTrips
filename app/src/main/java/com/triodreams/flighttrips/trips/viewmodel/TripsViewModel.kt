@@ -1,4 +1,6 @@
 package com.triodreams.flighttrips.trips.viewmodel
 
-class TripsViewModel {
+import androidx.lifecycle.ViewModel
+
+class TripsViewModel : ViewModel() {
 }

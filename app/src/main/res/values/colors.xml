@@ -2,8 +2,12 @@
 <resources>
     <color name="color_primary">#D40119</color>
     <color name="color_primary_variant">#A90014</color>
-    <color name="color_secondary">#0048b7</color>
+    <color name="color_secondary">#0048B7</color>
     <color name="color_secondary_variant">#003992</color>
+    <color name="text_color_primary">#727272</color>
+    <color name="text_color_secondary">#E0E0E0</color>
+    <color name="text_color_tertiary">#B9BCB9</color>
+    <color name="text_color_flight_name">#767676</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

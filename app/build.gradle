@@ -1,9 +1,6 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-android-extensions'
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -38,6 +35,9 @@ android {
     kapt {
         correctErrorTypes = true
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -54,6 +54,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    implementation "androidx.cardview:cardview:$cardview_version"
+
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "androidx.recyclerview:recyclerview-selection:$recyclerview_version"
+
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-jackson:$retrofitVersion"
@@ -64,6 +69,7 @@ dependencies {
     implementation "com.squareup.moshi:moshi:$moshiVersion"
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
     implementation "com.squareup.moshi:moshi-adapters:$moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
     //Epoxy
     kapt "com.airbnb.android:epoxy-processor:$epoxyVersion"

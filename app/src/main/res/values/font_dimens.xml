@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="t_title_large">34sp</dimen>
+    <dimen name="t_title_1">24sp</dimen>
+    <dimen name="t_title_2">20sp</dimen>
+    <dimen name="t_title_3">18sp</dimen>
+    <dimen name="t_headline">16sp</dimen>
+    <dimen name="t_body">16sp</dimen>
+    <dimen name="t_label">14sp</dimen>
+    <dimen name="t_description">14sp</dimen>
+    <dimen name="t_button_large">16sp</dimen>
+    <dimen name="t_button">14sp</dimen>
+    <dimen name="t_button_small">12sp</dimen>
+    <dimen name="t_metadata">12sp</dimen>
+    <dimen name="t_description_small">10sp</dimen>
+</resources>

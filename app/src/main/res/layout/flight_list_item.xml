@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="flightTo"
+            type="String" />
+        <variable
+            name="flightDuration"
+            type="String" />
+        <variable
+            name="flightDepartureAirport"
+            type="String" />
+        <variable
+            name="flightArrivalAirport"
+            type="String" />
+        <variable
+            name="flightDepartureTime"
+            type="String" />
+        <variable
+            name="flightArrivalTime"
+            type="String" />
+        <variable
+            name="flightDepartureCity"
+            type="String" />
+        <variable
+            name="flightArrivalCity"
+            type="String" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/base_spacing_unit_2"
+        app:cardCornerRadius="@dimen/base_spacing_unit_0_5"
+        app:cardElevation="@dimen/base_spacing_unit_1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_to_destination"
+                style="@style/TextAppearance.Title2.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/base_spacing_unit_2"
+                android:layout_marginTop="@dimen/base_spacing_unit_1"
+                android:text="@{flightTo}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/base_spacing_unit_1"
+                android:background="@color/text_color_secondary"
+                app:layout_constraintTop_toBottomOf="@+id/flight_to_destination" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_duration"
+                style="@style/TextAppearance.Label.Tertiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/base_spacing_unit_2"
+                android:text="@{flightDuration}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider"
+                tools:text="2 hr 30 min" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_source_code"
+                style="@style/TextAppearance.Label.Flight.Caps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/base_spacing_unit_2"
+                android:text="@{flightDepartureAirport}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flight_duration"
+                tools:text="MEL" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_destination_code"
+                style="@style/TextAppearance.Label.Flight.Caps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/base_spacing_unit_2"
+                android:text="@{flightArrivalAirport}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flight_duration"
+                tools:text="BNE" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/base_spacing_unit_1"
+                android:layout_height="@dimen/base_spacing_unit_1"
+                android:src="@drawable/ic_circle"
+                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"
+                app:layout_constraintLeft_toLeftOf="@+id/flight_path"
+                app:layout_constraintBottom_toBottomOf="@+id/flight_path"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/flight_path"
+                android:layout_width="200dp"
+                android:layout_height="@dimen/base_spacing_unit_0_5"
+                android:layerType="software"
+                android:src="@drawable/flight_path"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flight_source_code" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/base_spacing_unit_2"
+                android:layout_height="@dimen/base_spacing_unit_2"
+                android:src="@drawable/ic_flight_icon_secondary"
+                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/flight_path"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/base_spacing_unit_1"
+                android:layout_height="@dimen/base_spacing_unit_1"
+                android:src="@drawable/ic_circle"
+                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"
+                app:layout_constraintRight_toRightOf="@+id/flight_path"
+                app:layout_constraintBottom_toBottomOf="@+id/flight_path"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_departure_time"
+                style="@style/TextAppearance.Title2.Bold.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/base_spacing_unit_2"
+                android:text="@{flightDepartureTime}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flight_path"
+                tools:text="07:15" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_arrival_time"
+                style="@style/TextAppearance.Title2.Bold.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/base_spacing_unit_2"
+                android:text="@{flightArrivalTime}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flight_path"
+                tools:text="08:45" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_stop_info"
+                style="@style/TextAppearance.Metadata.Tertiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Non-Stop"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/flight_departure_time" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_source_name"
+                style="@style/TextAppearance.Metadata.Flight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/base_spacing_unit_2"
+                android:layout_marginBottom="@dimen/base_spacing_unit_2"
+                android:text="@{flightDepartureCity}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flight_stop_info"
+                tools:text="Melbourne" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_destination_name"
+                style="@style/TextAppearance.Metadata.Flight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/base_spacing_unit_2"
+                android:layout_marginBottom="@dimen/base_spacing_unit_2"
+                android:text="@{flightArrivalCity}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flight_stop_info"
+                tools:text="Brisbane" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

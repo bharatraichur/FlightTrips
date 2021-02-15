@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="date"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/TextAppearance.Label.Flight.Caps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/base_spacing_unit_2"
+            android:layout_marginTop="@dimen/base_spacing_unit_2"
+            android:layout_marginEnd="@dimen/base_spacing_unit_1"
+            android:layout_marginBottom="@dimen/base_spacing_unit_1"
+            android:text="@{date}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="WED, 21 AUGUST"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
