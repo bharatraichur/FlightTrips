@@ -1,7 +1,10 @@
 package com.triodreams.flighttrips.trips.models
 
+import android.os.Parcelable
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 data class FlightDataModel(
         var id: Int,
@@ -14,4 +17,4 @@ data class FlightDataModel(
         var arrival_airport: String,
         var scheduled_duration: String,
         var arrival_date: String
-)
+) : Parcelable

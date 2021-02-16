@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="flight_detail_view_height">220dp</dimen>
+    <dimen name="flight_airport_detail_view_height">350dp</dimen>
+</resources>

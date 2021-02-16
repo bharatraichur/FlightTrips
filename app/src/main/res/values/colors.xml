@@ -10,4 +10,5 @@
     <color name="text_color_flight_name">#767676</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="ticket_line">#DCDDE0</color>
 </resources>

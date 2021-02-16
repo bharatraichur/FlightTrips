@@ -1,11 +1,13 @@
 package com.triodreams.flighttrips.trips.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
 import com.airbnb.epoxy.stickyheader.StickyHeaderLinearLayoutManager
 import com.triodreams.flighttrips.R
 import com.triodreams.flighttrips.databinding.ActivityTripsBinding
@@ -13,21 +15,15 @@ import com.triodreams.flighttrips.flightHeaderItem
 import com.triodreams.flighttrips.flightListItem
 import com.triodreams.flighttrips.trips.models.FlightDataModel
 import com.triodreams.flighttrips.trips.network.FlightDataService
-import com.triodreams.flighttrips.trips.viewmodel.TripsViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
 
 class TripsActivity : AppCompatActivity() {
     private lateinit var layoutTripsBinding: ActivityTripsBinding
-
-    private lateinit var tripsViewModel: TripsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,14 +32,14 @@ class TripsActivity : AppCompatActivity() {
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.toolbar_title)
 
-        tripsViewModel = ViewModelProviders.of(this).get(TripsViewModel::class.java)
-
-        layoutTripsBinding.apply {
-            viewmodel = tripsViewModel
-        }
-
         layoutTripsBinding.recyclerView.layoutManager = StickyHeaderLinearLayoutManager(this)
 
+        layoutTripsBinding.progressBar.visibility = View.VISIBLE
+
+        initFlightData()
+    }
+
+    private fun initFlightData() {
         val service = Retrofit.Builder()
             .baseUrl(getString(R.string.flight_data_base_url))
             .addConverterFactory(MoshiConverterFactory.create())
@@ -56,6 +52,8 @@ class TripsActivity : AppCompatActivity() {
         flightDataCall.enqueue(object: Callback<List<FlightDataModel>> {
             override fun onFailure(call: Call<List<FlightDataModel>>, t: Throwable) {
                 Log.e("Error", t.localizedMessage, t)
+                layoutTripsBinding.progressBar.visibility = View.GONE
+                Toast.makeText(applicationContext, "Unable to retrieve Flight Data, Please try again later.", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<FlightDataModel>>, response: Response<List<FlightDataModel>>) {
@@ -71,8 +69,9 @@ class TripsActivity : AppCompatActivity() {
                                         val departureDate = outFormat.format(parser.parse(flightDataListInfo[pos].departure_date))
                                         id(flightDataListInfo[pos].id)
                                         date(departureDate)
-                                    } catch (e: ParseException) {
-                                        Log.e("Error", e.localizedMessage)
+                                    } catch (e: Exception) {
+                                        Log.e("FlightData", e.localizedMessage)
+                                        Toast.makeText(applicationContext, "Unable to retrieve Flight Data, Please try again later.", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                                 flightListItem {
@@ -90,14 +89,23 @@ class TripsActivity : AppCompatActivity() {
                                         flightArrivalTime(arrivalTime)
                                         flightDepartureCity(flightDataListInfo[pos].departure_city.split(',')[0])
                                         flightArrivalCity(flightDataListInfo[pos].arrival_city.split(',')[0])
-                                    } catch (e: ParseException) {
-                                        Log.e("Error", e.localizedMessage)
+                                        onClick { _ ->
+                                            val intent = Intent(applicationContext, TripDetailsActivity::class.java)
+                                            intent.putExtra("FlightData", flightDataListInfo[pos])
+                                            startActivity(intent)
+                                        }
+                                    } catch (e: Exception) {
+                                        Log.e("FlightData", e.localizedMessage)
+                                        Toast.makeText(applicationContext, "Unable to retrieve Flight Data, Please try again later.", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             }
                         }
                     }
+                } else {
+                    Toast.makeText(applicationContext, "Unable to retrieve Flight Data, Please try again later.", Toast.LENGTH_SHORT).show()
                 }
+                layoutTripsBinding.progressBar.visibility = View.GONE
             }
         })
     }

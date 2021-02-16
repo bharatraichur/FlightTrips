@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="flightDepartureCode"
+            type="String" />
+        <variable
+            name="flightArrivalCode"
+            type="String" />
+        <variable
+            name="flightDepartureCity"
+            type="String" />
+        <variable
+            name="flightArrivalCity"
+            type="String" />
+        <variable
+            name="flightDepartureDate"
+            type="String" />
+        <variable
+            name="flightArrivalDate"
+            type="String" />
+        <variable
+            name="flightDepartureTime"
+            type="String" />
+        <variable
+            name="flightArrivalTime"
+            type="String" />
+        <variable
+            name="flightAirlineCodeNumber"
+            type="String" />
+        <variable
+            name="flightAirportTerminalNumber"
+            type="String" />
+        <variable
+            name="flightAirportGateNumber"
+            type="String" />
+        <variable
+            name="flightPlaneSeatNumber"
+            type="String" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/base_spacing_unit_2"
+        app:cardElevation="@dimen/base_spacing_unit_1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".trips.activity.TripDetailsActivity">
+
+            <View
+                android:id="@+id/flight_details"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/flight_detail_view_height"
+                android:background="@color/color_secondary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_detail_departure_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="@dimen/base_spacing_unit_4"
+                android:layout_marginTop="@dimen/base_spacing_unit_4"
+                android:layout_marginEnd="@dimen/base_spacing_unit_1"
+                android:text="@{flightDepartureCode}"
+                tools:text="MEL"
+                style="@style/TextAppearance.TitleExtraLarge.White.Bold"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/flight_detail_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/flight_detail_departure_code"
+                android:src="@drawable/ic_flight_icon_white"
+                android:layout_marginTop="@dimen/base_spacing_unit_4_5"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_detail_arrival_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginStart="@dimen/base_spacing_unit_1"
+                android:layout_marginTop="@dimen/base_spacing_unit_4"
+                android:layout_marginEnd="@dimen/base_spacing_unit_4"
+                android:text="@{flightArrivalCode}"
+                tools:text="BNE"
+                style="@style/TextAppearance.TitleExtraLarge.White.Bold"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_detail_departure_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_detail_departure_code"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="@dimen/base_spacing_unit_4"
+                android:layout_marginEnd="@dimen/base_spacing_unit_1"
+                style="@style/TextAppearance.Label.White"
+                android:text="@{flightDepartureCity}"
+                tools:text="Melbourne"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_detail_arrival_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_detail_arrival_code"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginStart="@dimen/base_spacing_unit_1"
+                android:layout_marginEnd="@dimen/base_spacing_unit_4"
+                style="@style/TextAppearance.Label.White"
+                android:text="@{flightArrivalCity}"
+                tools:text="Brisbane"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_detail_departure_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_detail_departure_city"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="@dimen/base_spacing_unit_3"
+                android:layout_marginStart="@dimen/base_spacing_unit_4"
+                android:layout_marginEnd="@dimen/base_spacing_unit_1"
+                style="@style/TextAppearance.Headline.White"
+                android:text="@{flightDepartureDate}"
+                tools:text="Wed, 21 Aug"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_detail_arrival_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_detail_arrival_city"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="@dimen/base_spacing_unit_3"
+                android:layout_marginStart="@dimen/base_spacing_unit_1"
+                android:layout_marginEnd="@dimen/base_spacing_unit_4"
+                style="@style/TextAppearance.Headline.White"
+                android:text="@{flightArrivalDate}"
+                tools:text="Wed, 21 Aug"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_detail_departure_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_detail_departure_date"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="@dimen/base_spacing_unit_4"
+                android:layout_marginEnd="@dimen/base_spacing_unit_1"
+                style="@style/TextAppearance.Headline.White"
+                android:text="@{flightDepartureTime}"
+                tools:text="07:15 AM"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_detail_arrival_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_detail_arrival_date"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginStart="@dimen/base_spacing_unit_1"
+                android:layout_marginEnd="@dimen/base_spacing_unit_4"
+                style="@style/TextAppearance.Headline.White"
+                android:text="@{flightArrivalTime}"
+                tools:text="08:45 AM"/>
+
+            <View
+                android:id="@+id/flight_airport_details"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/flight_airport_detail_view_height"
+                app:layout_constraintTop_toBottomOf="@+id/flight_details"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_code_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/flight_airport_details"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="@dimen/base_spacing_unit_3"
+                android:layout_marginStart="@dimen/base_spacing_unit_4"
+                android:layout_marginEnd="@dimen/base_spacing_unit_1"
+                style="@style/TextAppearance.Headline.Bold"
+                android:text="@{flightAirlineCodeNumber}"
+                tools:text="Flight :"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_gate_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@+id/flight_airport_details"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="@dimen/base_spacing_unit_3"
+                android:layout_marginStart="@dimen/base_spacing_unit_1"
+                android:layout_marginEnd="@dimen/base_spacing_unit_4"
+                style="@style/TextAppearance.Headline.Bold"
+                android:text="@{flightAirportGateNumber}"
+                tools:text="Gate :"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_terminal_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_code_number"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="@dimen/base_spacing_unit_3"
+                android:layout_marginStart="@dimen/base_spacing_unit_4"
+                android:layout_marginEnd="@dimen/base_spacing_unit_1"
+                style="@style/TextAppearance.Headline.Bold"
+                android:text="@{flightAirportTerminalNumber}"
+                tools:text="Terminal :"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/flight_seat_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_gate_number"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="@dimen/base_spacing_unit_3"
+                android:layout_marginStart="@dimen/base_spacing_unit_1"
+                android:layout_marginEnd="@dimen/base_spacing_unit_4"
+                style="@style/TextAppearance.Headline.Bold"
+                android:text="@{flightPlaneSeatNumber}"
+                tools:text="Seat :"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/flight_ticket_line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/base_spacing_unit_0_5"
+                android:layerType="software"
+                android:src="@drawable/ticket_line"
+                android:layout_marginTop="@dimen/base_spacing_unit_3"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/flight_terminal_number" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/flight_ticket_line"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/ic_qr_code"
+                android:layout_marginTop="@dimen/base_spacing_unit_5_5"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

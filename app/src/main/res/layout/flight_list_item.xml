@@ -28,12 +28,16 @@
         <variable
             name="flightArrivalCity"
             type="String" />
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/base_spacing_unit_2"
+        android:onClick="@{onClick}"
         app:cardCornerRadius="@dimen/base_spacing_unit_0_5"
         app:cardElevation="@dimen/base_spacing_unit_1">
 
@@ -98,16 +102,16 @@
                 android:layout_width="@dimen/base_spacing_unit_1"
                 android:layout_height="@dimen/base_spacing_unit_1"
                 android:src="@drawable/ic_circle"
-                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"
+                app:layout_constraintBottom_toBottomOf="@+id/flight_path"
                 app:layout_constraintLeft_toLeftOf="@+id/flight_path"
-                app:layout_constraintBottom_toBottomOf="@+id/flight_path"/>
+                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"/>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/flight_path"
                 android:layout_width="200dp"
                 android:layout_height="@dimen/base_spacing_unit_0_5"
                 android:layerType="software"
-                android:src="@drawable/flight_path"
+                android:src="@drawable/flight_path_secondary"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/flight_source_code" />
@@ -116,18 +120,18 @@
                 android:layout_width="@dimen/base_spacing_unit_2"
                 android:layout_height="@dimen/base_spacing_unit_2"
                 android:src="@drawable/ic_flight_icon_secondary"
-                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"
+                app:layout_constraintBottom_toBottomOf="@+id/flight_path"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@+id/flight_path"/>
+                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"/>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/base_spacing_unit_1"
                 android:layout_height="@dimen/base_spacing_unit_1"
                 android:src="@drawable/ic_circle"
-                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"
+                app:layout_constraintBottom_toBottomOf="@+id/flight_path"
                 app:layout_constraintRight_toRightOf="@+id/flight_path"
-                app:layout_constraintBottom_toBottomOf="@+id/flight_path"/>
+                app:layout_constraintTop_toBottomOf="@+id/flight_source_code"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/flight_departure_time"

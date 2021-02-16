@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlightTrips">
-        <activity android:name=".trips.activity.TripsDetailsActivity"></activity>
+        <activity android:name=".trips.activity.TripDetailsActivity"
+            android:parentActivityName=".trips.activity.TripsActivity"/>
         <activity android:name=".trips.activity.TripsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
