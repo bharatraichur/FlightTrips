@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import com.airbnb.epoxy.stickyheader.StickyHeaderLinearLayoutManager
 import com.triodreams.flighttrips.R
@@ -29,8 +30,12 @@ class TripsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         layoutTripsBinding = DataBindingUtil.setContentView(this, R.layout.activity_trips)
 
-        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-        supportActionBar?.setCustomView(R.layout.toolbar_title)
+        supportActionBar?.let { actionBar ->
+            actionBar.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+            actionBar.setCustomView(R.layout.toolbar_title)
+        }
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         layoutTripsBinding.recyclerView.layoutManager = StickyHeaderLinearLayoutManager(this)
 

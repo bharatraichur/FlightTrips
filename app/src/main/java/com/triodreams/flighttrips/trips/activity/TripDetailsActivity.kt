@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import com.triodreams.flighttrips.R
 import com.triodreams.flighttrips.databinding.ActivityTripDetailsBinding
@@ -24,6 +25,8 @@ class TripDetailsActivity : AppCompatActivity() {
             actionBar.setCustomView(R.layout.toolbar_title)
             actionBar.setDisplayHomeAsUpEnabled(true)
         }
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val flightData = intent.getParcelableExtra<FlightDataModel>("FlightData")
 
