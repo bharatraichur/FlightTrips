@@ -53,7 +53,7 @@ class TripsActivity : AppCompatActivity() {
             override fun onFailure(call: Call<List<FlightDataModel>>, t: Throwable) {
                 Log.e("Error", t.localizedMessage, t)
                 layoutTripsBinding.progressBar.visibility = View.GONE
-                Toast.makeText(applicationContext, "Unable to retrieve Flight Data, Please try again later.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Unable to retrieve Flight data, Please try again later.", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<List<FlightDataModel>>, response: Response<List<FlightDataModel>>) {
@@ -71,7 +71,6 @@ class TripsActivity : AppCompatActivity() {
                                         date(departureDate)
                                     } catch (e: Exception) {
                                         Log.e("FlightData", e.localizedMessage)
-                                        Toast.makeText(applicationContext, "Unable to retrieve Flight Data, Please try again later.", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                                 flightListItem {
@@ -96,14 +95,14 @@ class TripsActivity : AppCompatActivity() {
                                         }
                                     } catch (e: Exception) {
                                         Log.e("FlightData", e.localizedMessage)
-                                        Toast.makeText(applicationContext, "Unable to retrieve Flight Data, Please try again later.", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(applicationContext, "Unable to retrieve Flight data, Please try again later.", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             }
                         }
                     }
                 } else {
-                    Toast.makeText(applicationContext, "Unable to retrieve Flight Data, Please try again later.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Unable to retrieve Flight data, Please try again later.", Toast.LENGTH_SHORT).show()
                 }
                 layoutTripsBinding.progressBar.visibility = View.GONE
             }

@@ -13,7 +13,8 @@
         android:theme="@style/Theme.FlightTrips">
         <activity android:name=".trips.activity.TripDetailsActivity"
             android:parentActivityName=".trips.activity.TripsActivity"/>
-        <activity android:name=".trips.activity.TripsActivity">
+        <activity android:name=".trips.activity.TripsActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,6 +2,8 @@ package com.triodreams.flighttrips.trips.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -25,6 +27,10 @@ class TripDetailsActivity : AppCompatActivity() {
 
         val flightData = intent.getParcelableExtra<FlightDataModel>("FlightData")
 
+        initFlightDetails(flightData)
+    }
+
+    private fun initFlightDetails(flightData: FlightDataModel?) {
         flightData?.let { flightInfo ->
             try {
                 layoutTripDetailsBinding.flightDepartureCode = flightInfo.departure_airport
@@ -48,7 +54,8 @@ class TripDetailsActivity : AppCompatActivity() {
                 layoutTripDetailsBinding.flightPlaneSeatNumber = "Seat : -"
             } catch (e: Exception) {
                 Log.e("FlightDetails", e.localizedMessage)
+                Toast.makeText(applicationContext, "Unable to retrieve Flight details, Please try again later.", Toast.LENGTH_SHORT).show()
             }
-        }
+        } ?: Toast.makeText(applicationContext, "Unable to retrieve Flight details, Please try again later.", Toast.LENGTH_SHORT).show()
     }
 }
